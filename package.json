@@ -11,8 +11,8 @@
   },
   "nano-staged": {
     "*.md": "prettier --write",
-    "*.{ts,tsx,js,vue,less}": "prettier --write",
-    "*.{ts,tsx,js,vue}": "eslint --fix"
+    "*.{ts,tsx,js,mjs,vue,less}": "prettier --write",
+    "*.{ts,tsx,js,mjs,vue}": "eslint --fix"
   },
   "author": "axy15",
   "license": "MIT",
