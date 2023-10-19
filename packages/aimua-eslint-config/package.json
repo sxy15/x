@@ -1,0 +1,40 @@
+{
+  "name": "@aimua/eslint-config",
+  "version": "1.0.0",
+  "description": "eslint config of aimua",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "eslint",
+    "config",
+    "aimua",
+    "tslint"
+  ],
+  "author": "sxy15",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sxy15/aimua.git",
+    "directory": "packages/aimua-eslint-config"
+  },
+  "bugs": "https://github.com/sxy15/aimua/issues",
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-vue": "^9.17.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.51.0",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "eslint": "^8.51.0"
+  }
+}

@@ -16,6 +16,9 @@
   },
   "author": "axy15",
   "license": "MIT",
+  "dependencies": {
+    "@aimua/eslint-config": "workspace:*"
+  },
   "devDependencies": {
     "eslint": "^8.51.0",
     "husky": "^8.0.0",
