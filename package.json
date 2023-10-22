@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "scripts": {
+    "prepare": "husky install",
+    "test": "echo 'commit msg test'"
+  },
+  "packageManager": "pnpm@8.8.0",
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8.8.0"
+  },
+  "nano-staged": {
+    "*.md": "prettier --write",
+    "*.{ts,tsx,js,mjs,vue,less}": "prettier --write",
+    "*.{ts,tsx,js,mjs,vue}": "eslint --fix"
+  },
+  "author": "axy15",
+  "license": "MIT",
+  "dependencies": {
+    "@aimua/eslint-config": "workspace:*"
+  },
+  "devDependencies": {
+    "eslint": "^8.51.0",
+    "husky": "^8.0.0",
+    "nano-staged": "^0.8.0",
+    "prettier": "^3.0.3"
+  }
+}
