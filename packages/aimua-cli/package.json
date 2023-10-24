@@ -1,0 +1,53 @@
+{
+  "name": "@aimua/cli",
+  "version": "0.0.0",
+  "description": "aimua cli",
+  "type": "module",
+  "main": "./lib/node/index.js",
+  "module": "./lib/node/index.js",
+  "bin": {
+    "aimua-cli": "./lib/node/bin.js"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "prepare": "npm run build",
+    "dev": "tsc --watch",
+    "build": "rimraf ./lib && tsc"
+  },
+  "keywords": [
+    "aimua",
+    "cli"
+  ],
+  "packageManager": "pnpm@8.8.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sxy15/aimua.git",
+    "directory": "packages/aimua-cli"
+  },
+  "bugs": {
+    "url": "https://github.com/sxy15/aimua/issues"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8.8.0"
+  },
+  "author": "sxy15",
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "commander": "^11.1.0",
+    "fs-extra": "^11.1.1",
+    "lodash-es": "^4.17.21",
+    "picocolors": "^1.0.0",
+    "rslog": "^1.1.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.3",
+    "@types/lodash-es": "^4.17.10",
+    "rimraf": "^5.0.5"
+  }
+}

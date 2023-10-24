@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "prepare": "husky install",
+    "dev": "pnpm --dir ./packages/aimua-ui dev",
     "test": "echo 'commit msg test'"
   },
   "packageManager": "pnpm@8.8.0",
@@ -17,7 +18,8 @@
   "author": "axy15",
   "license": "MIT",
   "dependencies": {
-    "@aimua/eslint-config": "workspace:*"
+    "@aimua/eslint-config": "workspace:*",
+    "@aimua/cli": "workspace:*"
   },
   "devDependencies": {
     "eslint": "^8.51.0",
