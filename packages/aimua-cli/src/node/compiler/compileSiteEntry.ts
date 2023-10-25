@@ -1,5 +1,6 @@
 import { get } from 'lodash-es'
 import slash from 'slash'
+import fse from 'fs-extra'
 import { getAimuaConfig } from '../config/aimua.config.js'
 import {
   DOCS_DIR_NAME,
@@ -8,12 +9,15 @@ import {
   ROOT_DOCS_DIR,
   ROOT_PAGES_DIR,
   SITE,
+  SITE_DIR,
   SITE_MOBILE_ROUTES,
   SITE_PC_DIR,
   SITE_PC_ROUTES,
   SRC_DIR,
 } from '../shared/constant.js'
 import { glob, isDir, outputFileSyncOnChange } from '../shared/fsUtils.js'
+
+const { copy } = fse
 
 const ROOT_DOCS_RE = /\/docs\/([-\w]+)\.([-\w]+)(?:.draft)?\.md/
 const PAGE_LOCALE_RE = /\/pages\/([-\w]+)\/locale\/([-\w]+)\.ts/
@@ -193,7 +197,7 @@ export async function buildPcSiteRoutes(draftMode: boolean) {
 }
 
 export async function buildSiteSource() {
-  console.log('buildSiteSource')
+  return copy(SITE, SITE_DIR)
 }
 
 export async function buildSiteEntry(draftMode: boolean) {
