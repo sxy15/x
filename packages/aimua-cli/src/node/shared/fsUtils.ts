@@ -3,7 +3,9 @@ import fse from 'fs-extra'
 import { fileURLToPath } from 'node:url'
 import { CLI_PACKAGE_JSON } from './constant.js'
 
-const { readJsonSync, ensureFileSync, readFileSync, outputFileSync } = fse
+const { readJsonSync, ensureFileSync, readFileSync, outputFileSync, pathExistsSync, lstatSync } = fse
+
+export const isDir = (file: string): boolean => pathExistsSync(file) && lstatSync(file).isDirectory()
 
 export function getDirname(url: string) {
   return fileURLToPath(new URL('.', url))
