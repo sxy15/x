@@ -1,3 +1,4 @@
+import globSync from 'glob'
 import fse from 'fs-extra'
 import { fileURLToPath } from 'node:url'
 import { CLI_PACKAGE_JSON } from './constant.js'
@@ -10,6 +11,18 @@ export function getDirname(url: string) {
 
 export function getCliVersion() {
   return readJsonSync(CLI_PACKAGE_JSON).version
+}
+
+export function glob(pattern: string): Promise<string[]> {
+  return new Promise((resolve, reject) => {
+    globSync(pattern, (err, files) => {
+      if (err) {
+        reject(err)
+      } else {
+        resolve(files)
+      }
+    })
+  })
 }
 
 export function outputFileSyncOnChange(path: string, code: string) {
