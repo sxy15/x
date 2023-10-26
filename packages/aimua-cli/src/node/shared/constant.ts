@@ -14,8 +14,12 @@ export const EXAMPLE_DIR_NAME = 'example'
 export const DOCS_DIR_NAME = 'docs'
 export const LOCALE_DIR_NAME = 'locale'
 
+export const VITE_RESOLVE_EXTENSIONS = ['.vue', '.tsx', '.ts', '.jsx', '.js', '.mjs', '.cjs', '.less', '.css']
+
 // site
 export const SITE = resolve(dirname, '../../../site')
+export const SITE_OUTPUT_PATH = resolve(CWD, 'site')
+export const SITE_PUBLIC_PATH = resolve(CWD, 'public')
 export const SITE_PC_DIR = resolve(CWD, '.aimua/site/pc')
 export const SITE_DIR = resolve(CWD, '.aimua/site')
 export const SITE_PC_ROUTES = resolve(CWD, '.aimua/pc.routes.ts')

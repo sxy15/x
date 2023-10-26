@@ -1,11 +1,14 @@
 import fse from 'fs-extra'
-import type { ViteDevServer } from 'vite'
-import type { FSWatcher } from 'chokidar'
+import { createServer, type ViteDevServer } from 'vite'
+import chokidar, { FSWatcher } from 'chokidar'
+import { merge } from 'lodash-es'
 import { logger } from 'rslog'
-import { SRC_DIR } from '../shared/constant.js'
+import { AIMUA_CONFIG, SRC_DIR } from '../shared/constant.js'
 import { buildSiteEntry } from '../compiler/compileSiteEntry.js'
+import { getAimuaConfig } from '../config/aimua.config.js'
+import { getDevConfig } from '../config/vite.config.js'
 
-const { ensureDirSync } = fse
+const { ensureDirSync, pathExistsSync } = fse
 
 interface DevCommandOptions {
   force?: boolean
@@ -30,6 +33,25 @@ export async function startServer(options: DevCommandOptions) {
 
   // build all config
   await buildSiteEntry(options.draft ?? false)
+  const aimuaConfig = await getAimuaConfig()
+  const devConfig = getDevConfig(aimuaConfig)
+  const inlineConfig = merge(devConfig, options.force ? { optimizeDeps: { force: true } } : {})
+
+  // create all instance
+  server = await createServer(inlineConfig)
+  await server.listen()
+  server.printUrls()
+
+  if (pathExistsSync(AIMUA_CONFIG)) {
+    watcher = chokidar.watch(AIMUA_CONFIG)
+    watcher.on('change', () => startServer(options))
+  }
+
+  logger.success(`\n${isRestart ? 'Res' : 'S'}tart successfully!!!`)
+
+  if (options.draft) {
+    logger.info('Server in draft mode!!!')
+  }
 }
 
 export async function dev(options: DevCommandOptions) {
