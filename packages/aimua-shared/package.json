@@ -1,0 +1,42 @@
+{
+  "name": "@aimua/shared",
+  "version": "0.0.0",
+  "description": "shared utils of aimua",
+  "type": "module",
+  "main": "lib/index.mjs",
+  "module": "lib/index.mjs",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "npx unbuild",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "shared",
+    "utils",
+    "aimua"
+  ],
+  "files": [
+    "lib",
+    "tsconfig.json",
+    "packages.json"
+  ],
+  "author": "sxy15",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sxy15/aimua.git",
+    "directory": "packages/aimua-shared"
+  },
+  "bugs": {
+    "url": "https://github.com/sxy15/aimua/issues"
+  },
+  "devDependencies": {
+    "unbuild": "^2.0.0"
+  }
+}
