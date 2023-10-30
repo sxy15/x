@@ -36,6 +36,8 @@
   "author": "sxy15",
   "license": "MIT",
   "dependencies": {
+    "@varlet/cli": "^2.18.1",
+    "@varlet/ui": "^2.18.1",
     "@varlet/vite-plugins": "^2.18.0",
     "@vitejs/plugin-vue": "^4.4.0",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
@@ -48,7 +50,8 @@
     "rslog": "^1.1.0",
     "slash": "^5.1.0",
     "typescript": "^5.2.2",
-    "vite": "^4.5.0"
+    "vite": "^4.5.0",
+    "vue": "^3.3.7"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.3",
