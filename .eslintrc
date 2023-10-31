@@ -2,6 +2,7 @@
     "root": true,
     "extends": ["@aimua"],
     "rules": {
-      "prefer-object-spread": "off"
+      "prefer-object-spread": "off",
+      "valid-typeof": "off"
     }
   }
