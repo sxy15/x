@@ -37,6 +37,10 @@
     "url": "https://github.com/sxy15/aimua/issues"
   },
   "devDependencies": {
+    "@types/lodash-es": "^4.17.10",
     "unbuild": "^2.0.0"
+  },
+  "dependencies": {
+    "lodash-es": "^4.17.21"
   }
 }
