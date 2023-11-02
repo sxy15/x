@@ -1,0 +1,24 @@
+{
+  "name": "@aimua/vite-plugins",
+  "version": "1.0.0",
+  "description": "vite plugins of aimua",
+  "main": "index.js",
+  "scripts": {
+    "example:build": "vite build",
+    "example:dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/ejs": "^3.1.4",
+    "@types/fs-extra": "^11.0.3",
+    "@vitejs/plugin-vue": "^4.4.0",
+    "vite": "^4.5.0",
+    "vue": "^3.3.7"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "fs-extra": "^11.1.1"
+  }
+}
