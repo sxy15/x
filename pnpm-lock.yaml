@@ -123,7 +123,14 @@ importers:
   packages/aimua-icons: {}
 
   packages/aimua-shared:
+    dependencies:
+      lodash-es:
+        specifier: ^4.17.21
+        version: 4.17.21
     devDependencies:
+      '@types/lodash-es':
+        specifier: ^4.17.10
+        version: 4.17.10
       unbuild:
         specifier: ^2.0.0
         version: 2.0.0(typescript@5.2.2)
