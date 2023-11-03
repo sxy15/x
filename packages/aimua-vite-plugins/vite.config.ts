@@ -4,11 +4,14 @@ import vue from '@vitejs/plugin-vue'
 import { copy } from './src/copy'
 import { html } from './src/html'
 // import { inlineCss } from './src/inlineCss'
+import { markdown } from './src/markdown'
 
 export default defineConfig({
   root: './example',
   plugins: [
-    vue(),
+    vue({
+      include: [/\.vue$/, /\.md$/],
+    }),
     copy({
       paths: [
         {
@@ -27,6 +30,9 @@ export default defineConfig({
       data: {
         title: 'Hello Vite',
       },
+    }),
+    markdown({
+      style: '',
     }),
     // inlineCss({
     //     cssFile: resolve(__dirname, './example/inject.css'),
