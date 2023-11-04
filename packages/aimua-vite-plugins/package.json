@@ -25,6 +25,7 @@
     "fs-extra": "^11.1.1",
     "highlight.js": "^11.9.0",
     "markdown-it": "^13.0.2",
+    "pinyin": "3.0.0-alpha.5",
     "pinyin-pro": "^3.17.0"
   }
 }

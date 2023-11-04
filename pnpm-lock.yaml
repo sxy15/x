@@ -179,6 +179,9 @@ importers:
       markdown-it:
         specifier: ^13.0.2
         version: 13.0.2
+      pinyin:
+        specifier: 3.0.0-alpha.5
+        version: 3.0.0-alpha.5
       pinyin-pro:
         specifier: ^3.17.0
         version: 3.17.0
@@ -6549,6 +6552,20 @@ packages:
 
   /pinyin@3.0.0-alpha.4:
     resolution: {integrity: sha512-KuuztSUK/91r8/yytH0KPhpehPAj6QzNLOUTagb1M3EviX9HvOtz5g2OghY45e7ls3W3dsdghVZ1csw7rhqz5g==}
+    hasBin: true
+    dependencies:
+      commander: 1.1.1
+    optionalDependencies:
+      '@node-rs/jieba': 1.7.2
+      nodejieba: 2.5.2
+      segmentit: 2.0.3
+    transitivePeerDependencies:
+      - encoding
+      - supports-color
+    dev: false
+
+  /pinyin@3.0.0-alpha.5:
+    resolution: {integrity: sha512-Sc8+Ch8uxZsVO0zvzHxvy24fEIixSl7V4kZoX4ThSyQ1BI0H8jIAqf0kxT8WMCX2xEHr1CYslKGDgSE4yj71hg==}
     hasBin: true
     dependencies:
       commander: 1.1.1
