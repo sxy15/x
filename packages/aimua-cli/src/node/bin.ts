@@ -18,4 +18,15 @@ program
     return dev(options)
   })
 
+program
+  .command('changelog')
+  .option('-rc --releaseCount <releaseCount>', 'release count')
+  .option('-f --file <file>', 'changelog filename')
+  .description('generate changelog')
+  .action(async (options) => {
+    const { changelog } = await import('./commands/changelog.js')
+
+    return changelog(options)
+  })
+
 program.parse()
