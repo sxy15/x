@@ -29,4 +29,6 @@ program
     return changelog(options)
   })
 
+program.command('release').option('-r  --remote <remote>', 'remote name')
+
 program.parse()

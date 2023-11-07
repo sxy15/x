@@ -10,6 +10,7 @@ export const ROOT_DOCS_DIR = resolve(CWD, 'docs')
 export const ROOT_PAGES_DIR = resolve(CWD, 'pages')
 
 export const CLI_PACKAGE_JSON = resolve(dirname, '../../../package.json')
+export const UI_PACKAGE_JSON = resolve(CWD, 'package.json')
 export const EXAMPLE_DIR_NAME = 'example'
 export const DOCS_DIR_NAME = 'docs'
 export const LOCALE_DIR_NAME = 'locale'

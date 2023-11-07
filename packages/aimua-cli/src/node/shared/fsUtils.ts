@@ -1,7 +1,7 @@
 import globSync from 'glob'
 import fse from 'fs-extra'
 import { fileURLToPath } from 'node:url'
-import { CLI_PACKAGE_JSON } from './constant.js'
+import { CLI_PACKAGE_JSON, UI_PACKAGE_JSON } from './constant.js'
 
 const { readJsonSync, ensureFileSync, readFileSync, outputFileSync, pathExistsSync, lstatSync } = fse
 
@@ -13,6 +13,10 @@ export function getDirname(url: string) {
 
 export function getCliVersion() {
   return readJsonSync(CLI_PACKAGE_JSON).version
+}
+
+export function getVersion() {
+  return readJsonSync(UI_PACKAGE_JSON).version
 }
 
 export function glob(pattern: string): Promise<string[]> {

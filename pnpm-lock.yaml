@@ -54,12 +54,18 @@ importers:
       conventional-changelog:
         specifier: ^5.1.0
         version: 5.1.0
+      execa:
+        specifier: ^5.0.0
+        version: 5.0.0
       fs-extra:
         specifier: ^11.1.1
         version: 11.1.1
       glob:
         specifier: ^7.2.0
         version: 7.2.0
+      inquirer:
+        specifier: ^9.2.11
+        version: 9.2.11
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -72,6 +78,9 @@ importers:
       rslog:
         specifier: ^1.1.0
         version: 1.1.0
+      semver:
+        specifier: ^7.5.4
+        version: 7.5.4
       slash:
         specifier: ^5.1.0
         version: 5.1.0
@@ -94,9 +103,15 @@ importers:
       '@types/glob':
         specifier: ^8.1.0
         version: 8.1.0
+      '@types/inquirer':
+        specifier: ^9.0.6
+        version: 9.0.6
       '@types/lodash-es':
         specifier: ^4.17.10
         version: 4.17.10
+      '@types/semver':
+        specifier: ^7.5.4
+        version: 7.5.4
       rimraf:
         specifier: ^5.0.5
         version: 5.0.5
@@ -1592,6 +1607,13 @@ packages:
       '@types/node': 20.8.7
     dev: true
 
+  /@types/inquirer@9.0.6:
+    resolution: {integrity: sha512-1Go1AAP/yOy3Pth5Xf1DC3nfZ03cJLCPx6E2YnSN/5I3w1jHBVH4170DkZ+JxfmA7c9kL9+bf9z3FRGa4kNAqg==}
+    dependencies:
+      '@types/through': 0.0.32
+      rxjs: 7.8.1
+    dev: true
+
   /@types/json-schema@7.0.14:
     resolution: {integrity: sha512-U3PUjAudAdJBeC2pgN8uTIKgxrb4nlDF3SF0++EldXQvQBGkpFZMSnwQiIoDU77tv45VgNkl/L4ouD+rEomujw==}
     dev: false
@@ -1658,7 +1680,12 @@ packages:
 
   /@types/semver@7.5.4:
     resolution: {integrity: sha512-MMzuxN3GdFwskAnb6fz0orFvhfqi752yjaXylr0Rp4oDg5H0Zn1IuyRhDVvYOwAXoJirx2xuS16I3WjxnAIHiQ==}
-    dev: false
+
+  /@types/through@0.0.32:
+    resolution: {integrity: sha512-7XsfXIsjdfJM2wFDRAtEWp3zb2aVPk5QeyZxGlVK57q4u26DczMHhJmlhr0Jqv0THwxam/L8REXkj8M2I/lcvw==}
+    dependencies:
+      '@types/node': 20.8.7
+    dev: true
 
   /@typescript-eslint/eslint-plugin@6.8.0(@typescript-eslint/parser@6.8.0)(eslint@8.51.0)(typescript@5.2.2):
     resolution: {integrity: sha512-GosF4238Tkes2SHPQ1i8f6rMtG6zlKwMEB0abqSJ3Npvos+doIlc/ATG+vX1G9coDF3Ex78zM3heXHLyWEwLUw==}
@@ -1830,7 +1857,7 @@ packages:
       conventional-changelog: 3.1.25
       ejs: 3.1.9
       esbuild: 0.19.3
-      execa: 5.1.1
+      execa: 5.0.0
       fs-extra: 9.1.0
       glob: 7.2.3
       hash-sum: 2.0.0
@@ -4224,6 +4251,21 @@ packages:
       split: 0.3.3
       stream-combiner: 0.0.4
       through: 2.3.8
+    dev: false
+
+  /execa@5.0.0:
+    resolution: {integrity: sha512-ov6w/2LCiuyO4RLYGdpFGjkcs0wMTgGE8PrkTHikeUy5iJekXyPIKUjifk5CsE0pt7sMCrMZ3YNqoCj6idQOnQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      cross-spawn: 7.0.3
+      get-stream: 6.0.1
+      human-signals: 2.1.0
+      is-stream: 2.0.1
+      merge-stream: 2.0.0
+      npm-run-path: 4.0.1
+      onetime: 5.1.2
+      signal-exit: 3.0.7
+      strip-final-newline: 2.0.0
     dev: false
 
   /execa@5.1.1:
@@ -7285,7 +7327,6 @@ packages:
     resolution: {integrity: sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==}
     dependencies:
       tslib: 2.6.2
-    dev: false
 
   /safe-array-concat@1.0.1:
     resolution: {integrity: sha512-6XbUAseYE2KtOuGueyeobCySj9L4+66Tn6KQMOPQJrAJEowYKW/YR/MGJZl7FdydUdaFu4LYyDZjxf4/Nmo23Q==}
@@ -8056,7 +8097,6 @@ packages:
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
-    dev: false
 
   /ttf2eot@2.0.0:
     resolution: {integrity: sha512-U56aG2Ylw7psLOmakjemAzmpqVgeadwENg9oaDjaZG5NYX4WB6+7h74bNPcc+0BXsoU5A/XWiHabDXyzFOmsxQ==}
