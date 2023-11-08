@@ -7,6 +7,8 @@ import fse, { writeFileSync } from 'fs-extra'
 import { resolve } from 'node:path'
 import { getVersion } from '../shared/fsUtils.js'
 import { CWD } from '../shared/constant.js'
+import { createSpinner } from 'nanospinner'
+import { changelog } from './changelog.js'
 
 const { readJSONSync } = fse
 const { prompt } = inquirer
@@ -89,7 +91,29 @@ async function getReleaseType() {
 }
 
 async function publish(preRelease: boolean) {
-  console.log('publish', preRelease)
+  const loading = createSpinner('Publishing all packages').start()
+  const args = ['-r', 'publish', '--no-git-checks', '--access', 'public']
+
+  preRelease && args.push('--tag', 'alpha')
+  const ret = execa('pnpm', args)
+  if (ret.stderr && (ret.stderr as any).includes('npm ERR!')) {
+    throw new Error('\n' + ret.stderr)
+  } else {
+    loading.success({ text: 'Publishing all packages successfully!' })
+    ret.stdout && logger.info(ret.stdout)
+  }
+}
+
+async function pushGit(version: string, remote = 'origin') {
+  const loading = createSpinner('Pushing to remote git repository').start()
+  await execa('git', ['add', '.'])
+  await execa('git', ['commit', '-m', `v${version}`])
+  await execa('git', ['tag', `v${version}`])
+  await execa('git', ['push', remote, `v${version}`])
+  const ret = await execa('git', ['push'])
+  loading.success({ text: 'Push remote repository successfully' })
+
+  ret.stdout && logger.info(ret.stdout)
 }
 
 export interface ReleaseCommandOptions {
@@ -135,6 +159,22 @@ export async function release(options: ReleaseCommandOptions) {
     }
 
     await publish(isPreRelease)
+
+    if (!isPreRelease) {
+      await changelog()
+      await pushGit(expectVersion, options.remote)
+    }
+
+    logger.success(`Release version ${expectVersion} successfully!`)
+
+    if (isPreRelease) {
+      try {
+        await execa('git', ['restore', '**/package.json'])
+        await execa('git', ['restore', 'package.json'])
+      } catch {
+        logger.error('Restore package.json has failed, please restore manually')
+      }
+    }
   } catch (error: any) {
     logger.error(error.toString())
     process.exit(1)
