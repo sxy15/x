@@ -1,6 +1,6 @@
 {
   "name": "@aimua/shared",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "shared utils of aimua",
   "type": "module",
   "main": "lib/index.mjs",
