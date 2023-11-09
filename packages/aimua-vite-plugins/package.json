@@ -1,11 +1,16 @@
 {
   "name": "@aimua/vite-plugins",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "vite plugins of aimua",
   "type": "module",
   "main": "./lib/index.mjs",
   "module": "./lib/index.mjs",
   "types": "./lib/index.d.ts",
+  "files": [
+    "lib",
+    "module.d.ts",
+    "package.json"
+  ],
   "exports": {
     ".": {
       "import": "./lib/index.mjs",
