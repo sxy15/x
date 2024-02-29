@@ -1,23 +1,12 @@
 {
-  "name": "@aimua/ui",
+  "name": "@aimua/aimua-ui",
   "version": "1.0.0",
-  "description": "aimua ui",
+  "description": "aimua-ui",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "aimua-cli dev"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "@varlet/cli": "^2.18.1",
-    "@varlet/shared": "^2.18.1",
-    "@varlet/touch-emulator": "^2.18.1",
-    "@varlet/ui": "^2.18.1",
-    "clipboard": "^2.0.11",
-    "lodash-es": "^4.17.21",
-    "vue": "^3.3.7",
-    "vue-router": "^4.2.5"
-  }
+  "license": "ISC"
 }
