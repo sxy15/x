@@ -3,7 +3,10 @@
   "scripts": {
     "prepare": "husky install",
     "dev": "pnpm --dir ./packages/aimua-ui dev",
-    "test": "echo 'commit msg test'"
+    "test": "echo 'commit msg test'",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "packageManager": "pnpm@8.8.0",
   "engines": {
@@ -18,13 +21,14 @@
   "author": "axy15",
   "license": "MIT",
   "dependencies": {
-    "@aimua/eslint-config": "workspace:*",
-    "@aimua/cli": "workspace:*"
+    "@aimua/cli": "workspace:*",
+    "@aimua/eslint-config": "workspace:*"
   },
   "devDependencies": {
     "eslint": "^8.51.0",
     "husky": "^8.0.0",
     "nano-staged": "^0.8.0",
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "vitepress": "1.0.0-rc.44"
   }
 }

@@ -1,5 +1,4 @@
 .DS_Store
-.vscode
 .idea
 
 .aimua
@@ -9,3 +8,5 @@ package-lock.json
 
 lib
 dist
+cache
+.cache
