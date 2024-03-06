@@ -85,6 +85,7 @@
     margin-left: 6px;
   }
 }
+
 @each $val in primary, success, warning, info, danger {
   .af-button--$(val) {
     --af-button-text-color: var(--af-color-white);
