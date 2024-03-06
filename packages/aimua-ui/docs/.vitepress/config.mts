@@ -1,11 +1,29 @@
 import { defineConfig } from 'vitepress'
+import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin'
+import { fileURLToPath, URL } from 'node:url'
+import eslint from 'vite-plugin-eslint' 
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "aimua-ui",
   description: "组件库学习",
+  vite: {
+    plugins: [vueJsx(), eslint()],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('../../src', import.meta.url))
+      }
+    }
+  },
+  markdown: {
+    config(md) {
+      md.use(containerPreview)
+      md.use(componentPreview)
+    }
+  },
+  appearance: false,
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Components', link: '/intro' }
