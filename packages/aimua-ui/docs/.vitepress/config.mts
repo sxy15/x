@@ -8,6 +8,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
   title: "aimua",
   description: "组件库学习",
+  base: '/aimua/',
   outDir: fileURLToPath(new URL('./docs-dist', import.meta.url)),
   vite: {
     plugins: [vueJsx(), eslint()],
