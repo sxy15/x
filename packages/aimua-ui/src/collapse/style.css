@@ -1,0 +1,63 @@
+.af-collapse {
+  --af-collapse-border-color: var(--af-border-color-light);
+  --af-collapse-header-height: 48px;
+  --af-collapse-header-bg-color: var(--af-fill-color-blank);
+  --af-collapse-header-text-color: var(--af-text-color-primary);
+  --af-collapse-header-font-size: 13px;
+  --af-collapse-content-bg-color: var(--af-fill-color-blank);
+  --af-collapse-content-font-size: 13px;
+  --af-collapse-content-text-color: var(--af-text-color-primary);
+  --af-collapse-disabled-text-color: var(--af-disabled-text-color);
+  --af-collapse-disabled-border-color: var(--af-border-color-lighter);
+  border-top: 1px solid var(--af-collapse-border-color);
+  border-bottom: 1px solid var(--af-collapse-border-color);
+}
+
+.af-collapse-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--af-collapse-header-height);
+  line-height: var(--af-collapse-header-height);
+  background-color: var(--af-collapse-header-bg-color);
+  color: var(--af-collapse-header-text-color);
+  cursor: pointer;
+  font-size: var(--af-collapse-header-font-size);
+  font-weight: 500;
+  transition: border-bottom-color var(--af-transition-duration);
+  outline: none;
+  border-bottom: 1px solid var(--af-collapse-border-color);
+
+  &.is-disabled {
+    color: var(--af-collapse-disabled-text-color);
+    cursor: not-allowed;
+    background-color: #f1f1f1;
+  }
+
+  &.is-active {
+    border-bottom-color: transparent;
+    .header-angle {
+      transform: rotate(90deg);
+    }
+  }
+
+  .header-angle {
+    transition: transform var(--af-transition-duration);
+  }
+}
+
+.af-collapse-item__content {
+  will-change: height;
+  background-color: var(--af-collapse-content-bg-color);
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: var(--af-collapse-content-font-size);
+  color: var(--af-collapse-content-text-color);
+  border-bottom: 1px solid var(--af-collapse-border-color);
+  padding-bottom: 25px;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: height var(--af-transition-duration) ease-in-out;
+}
