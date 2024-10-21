@@ -1,0 +1,25 @@
+{
+  "name": "@v/cli",
+  "version": "0.0.0",
+  "description": "vov cli",
+  "type": "module",
+  "bin": {
+    "vov": "./dist/bin.js"
+  },
+  "main": "dist/bin.js",
+  "scripts": {
+    "watch": "tsc -w",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^11.1.0",
+    "fs-extra": "^11.2.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4"
+  }
+}

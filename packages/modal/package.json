@@ -1,0 +1,33 @@
+{
+  "name": "@v/modal",
+  "version": "0.0.0",
+  "description": "modal",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "style": "dist/index.css",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "dev": "vite build -w",
+    "build:types": "tsc -p ./tsconfig.json --emitDeclarationOnly",
+    "build:bundle": "vite build",
+    "build": "pnpm clean && pnpm build:bundle && pnpm build:types",
+    "prepare": "pnpm build"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": ["modal"],
+  "author": "sxy15",
+  "license": "ISC",
+  "devDependencies": {
+    "@v/overlay": "workspace:^",
+    "@v/utils": "workspace:^",
+    "vue": "^3.4.27"
+  },
+  "peerDependencies": {
+    "@v/overlay": "workspace:^",
+    "@v/utils": "workspace:^",
+    "vue": "^3.4.27"
+  }
+}

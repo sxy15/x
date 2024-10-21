@@ -1,0 +1,38 @@
+{
+  "name": "@v/utils",
+  "version": "0.0.0",
+  "description": "utils",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "dev": "vite build -w",
+    "build:types": "tsc -p ./tsconfig.json",
+    "build:bundle": "vite build",
+    "build": "pnpm clean && pnpm build:bundle && pnpm build:types",
+    "prepare": "pnpm build"
+  },
+  "keywords": ["utils"],
+  "author": "sxy15",
+  "license": "ISC",
+  "devDependencies": {
+    "@v/use": "workspace:^",
+    "weixin-js-sdk": "^1.6.5"
+  },
+  "peerDependencies": {
+    "@v/use": "workspace:^",
+    "weixin-js-sdk": "^1.6.5"
+  }
+}

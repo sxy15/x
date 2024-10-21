@@ -1,0 +1,28 @@
+{
+  "name": "@v/toast",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "style": "dist/index.css",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "dev": "vite build -w",
+    "build:types": "tsc -p ./tsconfig.json --emitDeclarationOnly",
+    "build:bundle": "vite build",
+    "build": "pnpm clean && pnpm build:bundle && pnpm build:types",
+    "prepare": "pnpm build"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": ["toast"],
+  "author": "sxy15",
+  "license": "ISC",
+  "dependencies": {
+    "@v/overlay": "workspace:^",
+    "@v/use": "workspace:^",
+    "@v/utils": "workspace:^"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "@v/use",
+  "version": "0.0.0",
+  "description": "vue-use",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "dev": "vite build -w",
+    "build:types": "tsc -p ./tsconfig.json --emitDeclarationOnly",
+    "build:bundle": "vite build",
+    "build": "pnpm clean && pnpm build:bundle && pnpm build:types",
+    "prepare": "pnpm build"
+  },
+  "keywords": ["use"],
+  "author": "sxy15",
+  "license": "ISC",
+  "devDependencies": {
+    "@v/utils": "workspace:^",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "vue": "^3.4.27"
+  },
+  "peerDependencies": {
+    "@v/utils": "workspace:^",
+    "vue": "^3.4.27"
+  }
+}
