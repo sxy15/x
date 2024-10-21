@@ -1,8 +1,0 @@
-{
-    "root": true,
-    "extends": ["@aimua"],
-    "rules": {
-      "prefer-object-spread": "off",
-      "valid-typeof": "off"
-    }
-  }
