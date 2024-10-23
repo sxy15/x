@@ -8,10 +8,11 @@
   "scripts": {
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "copy:style": "",
+    "copy:style": "vov cs",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
+    "build": "pnpm --filter '@v/*' build & vov cs",
     "prepare": "husky"
   },
   "nano-staged": {
