@@ -1,4 +1,4 @@
-@keyframes v-fade-in {
+@keyframes x-fade-in {
   from {
     opacity: 0;
   }
@@ -8,7 +8,7 @@
   }
 }
 
-@keyframes v-fade-out {
+@keyframes x-fade-out {
   from {
     opacity: 1;
   }
@@ -18,12 +18,12 @@
   }
 }
 
-.v-fade {
+.x-fade {
   &-enter-active {
-    animation: 0.3s v-fade-in both ease-out;
+    animation: 0.3s x-fade-in both ease-out;
   }
 
   &-leave-active {
-    animation: 0.3s v-fade-out both ease-in;
+    animation: 0.3s x-fade-out both ease-in;
   }
 }

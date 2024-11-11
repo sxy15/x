@@ -1,8 +1,8 @@
+import { createApp, reactive, type Component } from 'vue'
 import { extend } from '@xh5/utils'
-import { reactive } from 'vue'
 import { useExpose } from '../useExpose'
 
-export function useToggle() {
+export function usePopupState() {
   const state = reactive<{
     show: boolean
     [key: string]: any
@@ -24,9 +24,25 @@ export function useToggle() {
   useExpose({ open, close, toggle })
 
   return {
+    state,
     open,
     close,
     toggle,
-    state,
+  }
+}
+
+export function mountComponent(RootComponent: Component) {
+  const app = createApp(RootComponent)
+  const root = document.createElement('div')
+
+  document.body.appendChild(root)
+
+  return {
+    instance: app.mount(root),
+    unmount(fn?: () => void) {
+      app.unmount()
+      document.body.removeChild(root)
+      fn?.()
+    },
   }
 }

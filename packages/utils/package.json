@@ -1,7 +1,11 @@
 {
-  "name": "@v/utils",
-  "version": "0.0.0",
+  "name": "@xh5/utils",
+  "version": "0.0.1",
   "description": "utils",
+  "keywords": [
+    "utils"
+  ],
+  "author": "sxy15",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "typings": "dist/index.d.ts",
@@ -24,15 +28,11 @@
     "build": "pnpm clean && pnpm build:bundle && pnpm build:types",
     "prepare": "pnpm build"
   },
-  "keywords": ["utils"],
-  "author": "sxy15",
   "license": "ISC",
   "devDependencies": {
-    "@v/use": "workspace:^",
     "weixin-js-sdk": "^1.6.5"
   },
   "peerDependencies": {
-    "@v/use": "workspace:^",
     "weixin-js-sdk": "^1.6.5"
   }
 }

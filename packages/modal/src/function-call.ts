@@ -1,22 +1,25 @@
-import { render, createVNode, type App, type Component, h, watchEffect, ref } from 'vue';
-import { useLockBodyScroll } from '@v/use';
-import Modal from './Modal';
+import { render, createVNode, type App, type Component, h, watchEffect, ref } from 'vue'
+import { useLockBodyScroll } from '@xh5/use'
+import Modal from './Modal'
 
-let _app: App;
+let _app: App
 const _cache: Map<string, any> = new Map()
 
-export function showModal(component: Component, options: {
-  id?: string
-  once?: boolean
-  lockScroll?: boolean
-  props?: Record<string, any>
-  methods?: Record<string, any>
-  [key: string]: any
-} = {}) {
-  const { props, methods = {}, ...rest } = options || {};
-  const { id, once = true, lockScroll = true } = rest;
+export function showModal(
+  component: Component,
+  options: {
+    id?: string
+    once?: boolean
+    lockScroll?: boolean
+    props?: Record<string, any>
+    methods?: Record<string, any>
+    [key: string]: any
+  } = {},
+) {
+  const { props, methods = {}, ...rest } = options || {}
+  const { id, once = true, lockScroll = true } = rest
   const { onClose } = methods
-  const visible = ref(true);
+  const visible = ref(true)
 
   if (id && !once && _cache.has(id)) {
     _cache.get(id)?.show()
@@ -28,61 +31,63 @@ export function showModal(component: Component, options: {
     onClose?.()
   }
 
-  const vm = createVNode(h(Modal, { show: visible.value }, () => h(component, {...props, ...methods, onClose: close})));
-  const el = document.createElement('div');
-  document.body.appendChild(el);
+  const vm = createVNode(
+    h(Modal, { show: visible.value }, () => h(component, { ...props, ...methods, onClose: close })),
+  )
+  const el = document.createElement('div')
+  document.body.appendChild(el)
 
   if (_app) {
-    vm.appContext = _app._context;
+    vm.appContext = _app._context
   }
 
-  render(vm, el);
+  render(vm, el)
 
-  let unlock = null;
+  let unlock = null
 
   watchEffect(() => {
-    vm.component.props.show = visible.value;
-    if(visible.value) {
-      unlock = lockScroll ? useLockBodyScroll() : null;
+    vm.component.props.show = visible.value
+    if (visible.value) {
+      unlock = lockScroll ? useLockBodyScroll() : null
     } else {
       unlock?.()
     }
   })
 
-  let timer = null;
+  let timer = null
   const remove = () => {
-    visible.value = false;
-    if(once) {
-      if(timer) clearTimeout(timer);
+    visible.value = false
+    if (once) {
+      if (timer) clearTimeout(timer)
       timer = setTimeout(() => {
-        render(null, el);
-        document.body.removeChild(el);
+        render(null, el)
+        document.body.removeChild(el)
       }, 300)
     }
   }
 
   const show = () => {
-    visible.value = true;
+    visible.value = true
   }
 
   if (id && !once) {
-    _cache.set(id, { show });
+    _cache.set(id, { show })
   }
 
   return {
     show,
-    remove
+    remove,
   }
 }
 
 export function createModalInstance(app: App) {
-  _app = app;
+  _app = app
 
-  return showModal;
+  return showModal
 }
 
 export default {
   install(app: App) {
-    app.config.globalProperties.$modal = createModalInstance(app);
-  }
+    app.config.globalProperties.$modal = createModalInstance(app)
+  },
 }

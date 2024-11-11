@@ -1,5 +1,5 @@
 {
-  "name": "@v/eslint-config",
+  "name": "@xh5/eslint-config",
   "version": "0.0.0",
   "description": "eslint-config",
   "main": "eslint.config.mjs",

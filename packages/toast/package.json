@@ -1,7 +1,11 @@
 {
-  "name": "@v/toast",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@xh5/toast",
+  "version": "0.0.0",
+  "description": "toast",
+  "keywords": [
+    "toast"
+  ],
+  "author": "sxy15",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "style": "dist/index.css",
@@ -17,12 +21,18 @@
   "files": [
     "dist"
   ],
-  "keywords": ["toast"],
-  "author": "sxy15",
   "license": "ISC",
   "dependencies": {
-    "@v/overlay": "workspace:^",
-    "@v/use": "workspace:^",
-    "@v/utils": "workspace:^"
+    "@xh5/overlay": "workspace:^"
+  },
+  "devDependencies": {
+    "@xh5/modal": "workspace:^",
+    "@xh5/use": "workspace:^",
+    "@xh5/utils": "workspace:^"
+  },
+  "peerDependencies": {
+    "@xh5/modal": "workspace:^",
+    "@xh5/use": "workspace:^",
+    "@xh5/utils": "workspace:^"
   }
 }

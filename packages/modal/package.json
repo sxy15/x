@@ -1,7 +1,9 @@
 {
-  "name": "@v/modal",
+  "name": "@xh5/modal",
   "version": "0.0.0",
   "description": "modal",
+  "keywords": ["modal"],
+  "author": "sxy15",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "style": "dist/index.css",
@@ -17,17 +19,15 @@
   "files": [
     "dist"
   ],
-  "keywords": ["modal"],
-  "author": "sxy15",
   "license": "ISC",
   "devDependencies": {
-    "@v/overlay": "workspace:^",
-    "@v/utils": "workspace:^",
+    "@xh5/overlay": "workspace:^",
+    "@xh5/utils": "workspace:^",
     "vue": "^3.4.27"
   },
   "peerDependencies": {
-    "@v/overlay": "workspace:^",
-    "@v/utils": "workspace:^",
+    "@xh5/overlay": "workspace:^",
+    "@xh5/utils": "workspace:^",
     "vue": "^3.4.27"
   }
 }

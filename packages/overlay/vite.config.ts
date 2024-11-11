@@ -4,10 +4,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueJsx(),
-  ],
+  plugins: [vue(), vueJsx()],
   build: {
     minify: true,
     lib: {
@@ -17,7 +14,7 @@ export default defineConfig({
       fileName: (format, chunk) => `${chunk}.${format}.js`,
     },
     rollupOptions: {
-      external: ['vue', '@v/utils', '@v/use'],
+      external: ['vue', '@xh5/utils', '@xh5/use'],
       output: {
         dir: 'dist',
         exports: 'named',
@@ -25,12 +22,12 @@ export default defineConfig({
           vue: 'Vue',
         },
         assetFileNames: (assetInfo) => {
-          if(assetInfo.name === 'style.css') {
+          if (assetInfo.name === 'style.css') {
             return 'index.css'
           }
           return assetInfo.name!
         },
       },
-    }
-  }
+    },
+  },
 })

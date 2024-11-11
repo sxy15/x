@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import '@v/style'
+import '@xh5/style'
 import './style.css'
 import App from './App.vue'
 

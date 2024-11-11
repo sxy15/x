@@ -3,9 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  plugins: [
-    vue()
-  ],
+  plugins: [vue()],
   build: {
     minify: true,
     lib: {
@@ -15,7 +13,7 @@ export default defineConfig({
       fileName: (format, chunk) => `${chunk}.${format}.js`,
     },
     rollupOptions: {
-      external: ['vue', '@v/use', 'weixin-js-sdk'],
+      external: ['vue', '@xh5/toast', 'axios'],
       treeshake: {
         moduleSideEffects: false,
       },
@@ -26,6 +24,6 @@ export default defineConfig({
           vue: 'Vue',
         },
       },
-    }
-  }
+    },
+  },
 })

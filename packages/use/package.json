@@ -1,7 +1,9 @@
 {
-  "name": "@v/use",
-  "version": "0.0.0",
+  "name": "@xh5/use",
+  "version": "0.0.1",
   "description": "vue-use",
+  "keywords": ["use"],
+  "author": "sxy15",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "typings": "dist/index.d.ts",
@@ -24,17 +26,13 @@
     "build": "pnpm clean && pnpm build:bundle && pnpm build:types",
     "prepare": "pnpm build"
   },
-  "keywords": ["use"],
-  "author": "sxy15",
   "license": "ISC",
   "devDependencies": {
-    "@v/utils": "workspace:^",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.11",
+    "@xh5/utils": "workspace:^",
     "vue": "^3.4.27"
   },
   "peerDependencies": {
-    "@v/utils": "workspace:^",
+    "@xh5/utils": "workspace:^",
     "vue": "^3.4.27"
   }
 }

@@ -1,7 +1,11 @@
 {
-  "name": "@v/style",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@xh5/style",
+  "version": "0.0.0",
+  "description": "style",
+  "keywords": [
+    "style"
+  ],
+  "author": "sxy15",
   "type": "module",
   "main": "index.scss",
   "module": "index.scss",
@@ -12,7 +16,5 @@
   "scripts": {
     
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC"
 }

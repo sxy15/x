@@ -1,6 +1,6 @@
-import { createNamespace } from '@v/utils'
+import { createNamespace } from '@xh5/utils'
 import { defineComponent, ExtractPropTypes } from 'vue'
-import Overlay from '@v/overlay'
+import Overlay from '@xh5/overlay'
 
 const [name, bem] = createNamespace('modal')
 
@@ -16,17 +16,10 @@ export default defineComponent({
   props: modalProps,
 
   setup(props, { slots }) {
-
     const renderModal = () => {
-      return (
-        <div class={bem()}>
-          {slots['default']?.()}
-        </div>
-      )
+      return <div class={bem()}>{slots['default']?.()}</div>
     }
 
-    return () => (
-      <Overlay show={props.show} v-slots={{ default: renderModal }}></Overlay>
-    )
-  }
+    return () => <Overlay show={props.show} v-slots={{ default: renderModal }}></Overlay>
+  },
 })

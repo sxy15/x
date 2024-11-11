@@ -1,16 +1,12 @@
-import { createNamespace, isDef, makeNumberProp, makeStringProp, numericProp, pick } from "@v/utils";
-import { defineComponent, watch } from "vue";
-import { ToastPosition, ToastType } from "./types";
-import Loading from "./loading-svg";
-import Overlay from '@v/overlay';
+import { createNamespace, isDef, makeNumberProp, makeStringProp, numericProp, pick } from '@xh5/utils'
+import { defineComponent, watch } from 'vue'
+import { ToastPosition, ToastType } from './types'
+import Loading from './loading-svg'
+import Overlay from '@xh5/overlay'
 
-const [name, bem] = createNamespace('toast');
+const [name, bem] = createNamespace('toast')
 
-const overlayInheritProps = [
-  'show',
-  'zIndex',
-  'forbidClick'
-] as const;
+const overlayInheritProps = ['show', 'zIndex', 'forbidClick'] as const
 
 export const toastProps = {
   show: Boolean,
@@ -30,15 +26,15 @@ export default defineComponent({
   emits: ['update:show', 'closed'],
 
   setup(props, { emit }) {
-    let timer: ReturnType<typeof setTimeout>;
+    let timer: ReturnType<typeof setTimeout>
 
-    const clearTimer = () => clearTimeout(timer);
+    const clearTimer = () => clearTimeout(timer)
 
-    const updateShow = (show: boolean) => emit('update:show', show);
+    const updateShow = (show: boolean) => emit('update:show', show)
 
     const renderIcon = () => {
-      const { type } = props;
-      const isLoading = type === 'loading';
+      const { type } = props
+      const isLoading = type === 'loading'
 
       if (isLoading) {
         return (
@@ -50,31 +46,29 @@ export default defineComponent({
     }
 
     const renderMessage = () => {
-      const { message } = props;
+      const { message } = props
 
       if (isDef(message) && message !== '') {
-        return (
-          <div class={bem('text')} innerHTML={String(message)}></div>
-        )
+        return <div class={bem('text')} innerHTML={String(message)}></div>
       }
     }
 
     watch(
       () => [props.show, props.type, props.message, props.duration],
       () => {
-        clearTimer();
+        clearTimer()
         if (props.show && props.duration > 0) {
           timer = setTimeout(() => {
-            updateShow(false);
-          }, props.duration);
+            updateShow(false)
+          }, props.duration)
         }
       },
-    );
+    )
 
     return () => {
-      const isMask = props.type === 'mask';
-      const transparentClass = isMask ? 'transparent' : '';
-      const overlayDuration = isMask ? 0 : 0.3;
+      const isMask = props.type === 'mask'
+      const transparentClass = isMask ? 'transparent' : ''
+      const overlayDuration = isMask ? 0 : 0.3
 
       return (
         <Overlay
@@ -89,5 +83,5 @@ export default defineComponent({
         </Overlay>
       )
     }
-  }
+  },
 })

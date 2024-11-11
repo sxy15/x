@@ -1,7 +1,9 @@
 {
-  "name": "@v/axios",
-  "version": "1.0.0",
+  "name": "@xh5/axios",
+  "version": "0.0.0",
   "description": "axios",
+  "keywords": ["axios"],
+  "author": "sxy15",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "typings": "dist/index.d.ts",
@@ -13,16 +15,14 @@
     "build": "pnpm clean && pnpm build:bundle && pnpm build:types",
     "prepare": "pnpm build"
   },
-  "keywords": ["axios"],
-  "author": "sxy15",
   "license": "ISC",
   "devDependencies": {
-    "@v/toast": "workspace:^",
+    "@xh5/toast": "workspace:^",
     "axios": "^1.7.5",
     "vue": "^3.4.27"
   },
   "peerDependencies": {
-    "@v/toast": "workspace:^",
+    "@xh5/toast": "workspace:^",
     "axios": "^1.7.5",
     "vue": "^3.4.27"
   }

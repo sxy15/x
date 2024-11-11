@@ -4,7 +4,8 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--van-base-font);
+  color: #161616;
+  font-size: 14px;
 }
 
 a {
@@ -22,7 +23,7 @@ a,
 input,
 button,
 textarea,
-[class*='van-'] {
+[class*='x-'] {
   &:focus {
     outline: none;
   }
@@ -33,4 +34,10 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }

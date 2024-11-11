@@ -9,12 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@v/modal": "workspace:^",
-    "@v/overlay": "workspace:^",
-    "@v/style": "workspace:^",
-    "@v/toast": "workspace:^",
-    "@v/use": "workspace:^",
-    "@v/utils": "workspace:^",
+    "@xh5/modal": "workspace:^",
+    "@xh5/overlay": "workspace:^",
+    "@xh5/style": "workspace:^",
+    "@xh5/toast": "workspace:^",
+    "@xh5/use": "workspace:^",
+    "@xh5/utils": "workspace:^",
     "vue": "^3.5.10"
   },
   "devDependencies": {

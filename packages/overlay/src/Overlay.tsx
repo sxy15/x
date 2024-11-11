@@ -1,6 +1,6 @@
-import { defineComponent, Transition, type CSSProperties, type PropType, type ExtractPropTypes } from "vue";
-import { useLazyRender } from "@v/use";
-import { createNamespace, truthProp, numericProp, extend, getZIndexStyle, unknownProp, isDef } from "@v/utils";
+import { defineComponent, Transition, type CSSProperties, type PropType, type ExtractPropTypes } from 'vue'
+import { useLazyRender } from '@xh5/use'
+import { createNamespace, truthProp, numericProp, extend, getZIndexStyle, unknownProp, isDef } from '@xh5/utils'
 
 const [name, bem] = createNamespace('overlay')
 
@@ -27,23 +27,17 @@ export default defineComponent({
     const renderOverlay = lazyRender(() => {
       const style: CSSProperties = extend(getZIndexStyle(props.zIndex), props.customStyle)
 
-      if(isDef(props.duration)) {
+      if (isDef(props.duration)) {
         style.animationDuration = `${props.duration}s`
       }
-      
+
       return (
-        <div
-          v-show={props.show}
-          style={style}
-          class={[bem([props.forbidClick ? 'forbid' : '']), props.className]}
-        >
+        <div v-show={props.show} style={style} class={[bem([props.forbidClick ? 'forbid' : '']), props.className]}>
           {slots.default?.()}
         </div>
       )
     })
 
-    return () => (
-      <Transition v-slots={{ default: renderOverlay }} name="v-fade" appear />
-    )
-  }
+    return () => <Transition v-slots={{ default: renderOverlay }} name="x-fade" appear />
+  },
 })

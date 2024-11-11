@@ -1,7 +1,8 @@
-import { ref, watch, getCurrentInstance } from "vue";
-import { mountComponent, usePopupState, isObject, extend, sleep } from "@v/utils";
-import type { ToastOptions, ToastType, ToastWrapperInstance } from "./types";
-import Toast from "./Toast";
+import { ref, watch, getCurrentInstance } from 'vue'
+import { isObject, extend, sleep } from '@xh5/utils'
+import { mountComponent, usePopupState } from '@xh5/use'
+import type { ToastOptions, ToastType, ToastWrapperInstance } from './types'
+import Toast from './Toast'
 
 const defaultOptions: ToastOptions = {
   type: 'text',
@@ -15,28 +16,28 @@ type ShowToastOptions = ToastOptions & {
   once?: boolean
 }
 
-let IS_ONCE = Symbol('once')
-let instanceCounter = 0;
+const IS_ONCE = Symbol('once')
+let instanceCounter = 0
 let queue: ToastWrapperInstance[] = []
-let currentOptions = extend({}, defaultOptions);
+const currentOptions = extend({}, defaultOptions)
 
 function parseOptions(message: string | ToastOptions): ToastOptions {
-  if(isObject(message)) {
-    return message;
+  if (isObject(message)) {
+    return message
   }
   return { message }
 }
 
 function createInstance(once?: boolean) {
-  const instanceId = `toast-${++instanceCounter}`;
+  const instanceId = `toast-${++instanceCounter}`
   const { instance, unmount } = mountComponent({
     setup() {
-      const message = ref('');
+      const message = ref('')
       const { state, open, close, toggle } = usePopupState()
 
       const onClosed = async () => {
         if (once) {
-          queue = queue.filter(item => item !== instance)
+          queue = queue.filter((item) => item !== instance)
           await sleep(300)
           unmount()
         }
@@ -45,7 +46,7 @@ function createInstance(once?: boolean) {
       const render = () => {
         const attrs: Record<string, unknown> = {
           onClosed,
-          'onUpdate:show': toggle
+          'onUpdate:show': toggle,
         }
 
         console.log(state)
@@ -55,38 +56,40 @@ function createInstance(once?: boolean) {
 
       // support dynamic message
       watch(message, (nv) => {
-        state.message = nv;
-      });
+        state.message = nv
+      })
 
-      watch(() => state.show, nv => {
-        if(!nv) {
-          onClosed()
-        }
-      });
-
-      (getCurrentInstance() as any).render = render;
+      watch(
+        () => state.show,
+        (nv) => {
+          if (!nv) {
+            onClosed()
+          }
+        },
+      )
+      ;(getCurrentInstance() as any).render = render
 
       return {
         open,
         close,
         message,
         [IS_ONCE]: once,
-        id: instanceId
+        id: instanceId,
       }
-    }
+    },
   })
 
   return instance as ToastWrapperInstance
 }
 
 function getInstance(once?: boolean) {
-  const _queue = queue.filter(item => !item[IS_ONCE])
+  const _queue = queue.filter((item) => !item[IS_ONCE])
   if (!_queue.length || once) {
     const instance = createInstance(once)
 
     queue.push(instance)
 
-    if(once) {
+    if (once) {
       return instance
     }
   }
@@ -98,30 +101,25 @@ export function showToast(options: string | ShowToastOptions = {}) {
   const toast = getInstance((options as ShowToastOptions)?.once)
   const parsedOptions = parseOptions(options)
 
-  toast.open(
-    extend(
-      {},
-      currentOptions,
-      parsedOptions
-    )
-  )
+  toast.open(extend({}, currentOptions, parsedOptions))
 
   return toast
 }
 
-const createMethod = (type: ToastType) => (options: string | ToastOptions) => showToast(extend({ type }, parseOptions(options)))
+const createMethod = (type: ToastType) => (options: string | ToastOptions) =>
+  showToast(extend({ type }, parseOptions(options)))
 
 export const showLoadingToast = createMethod('loading')
 
 export const showTextToast = createMethod('text')
 
 export const clearToast = () => {
-  queue.forEach(toast => toast.close())
+  queue.forEach((toast) => toast.close())
   queue = []
 }
 
 export const closeToast = (id: string) => {
-  const toast = queue.find(item => item.id === id)
+  const toast = queue.find((item) => item.id === id)
   toast?.close()
-  queue = queue.filter(item => item.id !== id)
+  queue = queue.filter((item) => item.id !== id)
 }

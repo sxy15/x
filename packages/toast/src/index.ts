@@ -1,9 +1,9 @@
-import { withInstall } from "@v/utils";
+import { withInstall } from '@xh5/utils'
 import _Toast, { toastProps } from './Toast'
-import { showToast, closeToast } from "./function-call";
+import { showToast, closeToast } from './function-call'
 import './index.scss'
 
 const Toast = withInstall(_Toast)
-export default Toast;
+export default Toast
 
 export { Toast, toastProps, showToast, closeToast }

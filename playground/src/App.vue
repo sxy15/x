@@ -1,34 +1,34 @@
 <script setup lang="ts">
-  import { showToast } from '@v/toast'
-  import { showModal } from '@v/modal'
-  import Rule from './components/modal-rule.vue';
+import { showToast } from '@xh5/toast'
+import { showModal } from '@xh5/modal'
+import Rule from './components/modal-rule.vue'
 
-  const clkToast = () => {
+const clkToast = () => {
+  showToast({
+    type: 'loading',
+    message: 'this is toast hha!',
+    duration: 0,
+    forbidClick: false,
+  })
+
+  setTimeout(() => {
     showToast({
-      type: 'loading',
-      message: 'this is toast hha!',
+      type: 'text',
+      message: 'this is toast hha2!',
       duration: 0,
-      forbidClick: false
+      forbidClick: true,
     })
+  }, 8000)
+}
 
-    setTimeout(() => {
-      showToast({
-        type: 'text',
-        message: 'this is toast hha2!',
-        duration: 0,
-        forbidClick: true
-      })
-    }, 8000)
-  }
-
-  const clkModal = () => {
-    showModal(Rule, {
-      lockScroll: true,
-      props: {
-        title: 'this is modal'
-      }
-    })
-  }
+const clkModal = () => {
+  showModal(Rule, {
+    lockScroll: true,
+    props: {
+      title: 'this is modal',
+    },
+  })
+}
 </script>
 
 <template>
@@ -45,13 +45,13 @@
 </template>
 
 <style scoped>
-  .top {
-    height: 500px;
-    background-color: #000;
-  }
+.top {
+  height: 500px;
+  background-color: #000;
+}
 
-  .bottom {
-    height: 500px;
-    background-color: #000;
-  }
+.bottom {
+  height: 500px;
+  background-color: #000;
+}
 </style>
