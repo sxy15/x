@@ -1,8 +1,10 @@
 {
   "name": "@xh5/use",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "vue-use",
-  "keywords": ["use"],
+  "keywords": [
+    "use"
+  ],
   "author": "sxy15",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",

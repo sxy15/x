@@ -1,8 +1,11 @@
 {
   "name": "@xh5/cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "xh5 cli",
-  "keywords": ["xh5", "cli"],
+  "keywords": [
+    "xh5",
+    "cli"
+  ],
   "author": "sxy15",
   "type": "module",
   "bin": {
