@@ -6,6 +6,7 @@
     "node": ">=20.0.0"
   },
   "scripts": {
+    "postinstall": "husky install",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "copy:style": "vov cs",
@@ -13,11 +14,17 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "build": "pnpm --filter '@xh5/*' build & xh5 cs",
-    "ct:add": "pnpm changeset",
+    "ci:add": "pnpm changeset",
     "ci:version": "pnpm changeset version",
     "ci:public": "echo public",
     "ci:publish": "pnpm publish -r",
+    "commit": "git-cz",
     "prepare": "husky"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
   },
   "nano-staged": {
     "*.md": "prettier --write",
@@ -32,6 +39,9 @@
     "@babel/core": "^7.22.1",
     "@babel/preset-env": "^7.22.4",
     "@changesets/cli": "^2.27.9",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@commitlint/cz-commitlint": "^19.5.0",
     "@rushstack/eslint-patch": "^1.8.0",
     "@tsconfig/node20": "^20.1.4",
     "@types/node": "^22.5.3",
@@ -47,9 +57,12 @@
     "@xh5/toast": "workspace:^",
     "@xh5/use": "workspace:^",
     "@xh5/utils": "workspace:^",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.13.0",
     "eslint-plugin-vue": "^9.23.0",
     "husky": "^9.1.6",
+    "inquirer": "9",
     "jsdom": "^25.0.1",
     "nano-staged": "^0.8.0",
     "prettier": "^3.3.3",

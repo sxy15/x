@@ -1,6 +1,6 @@
 {
   "cSpell.words": [
-    "v",
+    "commitlint",
     "composables",
     "csstype",
     "markdownit",
@@ -13,6 +13,7 @@
     "Symbian",
     "tabbar",
     "treeshake",
+    "v",
     "vbanlance",
     "vitepress",
     "Wechat",
