@@ -9,8 +9,8 @@
   "scripts": {
     
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["eslint-config"],
+  "author": "sxy15",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^9.4.0",
