@@ -9,7 +9,7 @@
   "scripts": {
     
   },
-  "keywords": ["eslint-config"],
+  "keywords": ["eslint-config", "eslint"],
   "author": "sxy15",
   "license": "ISC",
   "devDependencies": {
