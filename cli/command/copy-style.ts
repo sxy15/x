@@ -1,7 +1,10 @@
 // 识别packages下包的dist/index.css，复制到dist/style下，并且修改index.ts的import路径
 import fse from 'fs-extra'
 import { resolve } from 'node:path'
-import { CLI_CWD, EXCLUDE_DIR, log } from './util.js'
+import { CLI_CWD, EXCLUDE_DIR } from './util.js'
+import colors from 'picocolors'
+
+const { green } = colors
 
 const { readdirSync, copyFileSync, existsSync, writeFileSync } = fse
 
@@ -34,5 +37,5 @@ export function copyStyle() {
   }
 
   // 4. log
-  log.success('style copied')
+  green('style copied')
 }

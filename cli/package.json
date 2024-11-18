@@ -1,6 +1,6 @@
 {
   "name": "@xh5/cli",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "xh5 cli",
   "keywords": [
     "xh5",
@@ -11,6 +11,10 @@
   "bin": {
     "xh5": "./dist/bin.js"
   },
+  "files": [
+    "dist",
+    "template"
+  ],
   "main": "dist/bin.js",
   "scripts": {
     "watch": "tsc -w",
@@ -20,9 +24,13 @@
   "dependencies": {
     "chalk": "^5.3.0",
     "commander": "^11.1.0",
-    "fs-extra": "^11.2.0"
+    "fs-extra": "^11.2.0",
+    "picocolors": "^1.1.1",
+    "prompts": "^2.4.2"
   },
   "devDependencies": {
-    "@types/fs-extra": "^11.0.4"
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.9.0",
+    "@types/prompts": "^2.4.9"
   }
 }

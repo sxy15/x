@@ -1,5 +1,11 @@
 # @xh5/use
 
+## 0.1.0
+
+### Minor Changes
+
+- 18d8b6a: lockscroll 增加全局判断
+
 ## 0.0.3
 
 ### Patch Changes
