@@ -1,5 +1,15 @@
 # @xh5/modal
 
+## 1.0.0
+
+### Minor Changes
+
+- 18d8b6a: modal 增加全局唯一判断
+
+### Patch Changes
+
+- @xh5/overlay@1.0.0
+
 ## 0.0.2
 
 ### Patch Changes
