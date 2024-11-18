@@ -4,6 +4,7 @@ import Modal from './Modal'
 
 let _app: App
 const _cache: Map<string, any> = new Map()
+const _comps: Set<string> = new Set()
 
 export function showModal(
   component: Component,
@@ -21,6 +22,14 @@ export function showModal(
   const { onClose } = methods
   const visible = ref(true)
 
+  // 连续多次调用同一个组件，只显示一次
+  const _id = id || component.name
+  if (_comps.has(_id)) {
+    return
+  } else {
+    _comps.add(_id)
+  }
+
   if (id && !once && _cache.has(id)) {
     _cache.get(id)?.show()
     return
@@ -28,6 +37,7 @@ export function showModal(
 
   function close() {
     remove()
+    _comps.delete(_id)
     onClose?.()
   }
 

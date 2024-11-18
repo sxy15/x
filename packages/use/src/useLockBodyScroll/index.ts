@@ -1,9 +1,18 @@
-export function useLockBodyScroll() {
-  const originalStyle = window.getComputedStyle(document.body).overflow;
+let originalStyle = ''
+let globalLockCount = 0
 
-  document.body.style.overflow = 'hidden';
+export function useLockBodyScroll() {
+  if (globalLockCount === 0) {
+    originalStyle = window.getComputedStyle(document.body).overflow
+    document.body.style.overflow = 'hidden'
+  }
+  globalLockCount++
 
   return () => {
-    document.body.style.overflow = originalStyle;
-  };
+    globalLockCount--
+    if (globalLockCount === 0) {
+      document.body.style.overflow = originalStyle
+      originalStyle = ''
+    }
+  }
 }
