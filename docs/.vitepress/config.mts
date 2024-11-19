@@ -22,9 +22,14 @@ export default defineConfig({
       {
         text: '基础组件',
         items: [
+          { text: 'EslintConfig', link: '/components/eslint-config' },
+          { text: 'Style', link: '/components/style' },
+          { text: 'Use', link: '/components/use' },
+          { text: 'Utils', link: '/components/utils' },
           { text: 'Overlay', link: '/components/overlay' },
           { text: 'Modal', link: '/components/modal' },
-          { text: 'Toast', link: '/components/toast' }
+          { text: 'Toast', link: '/components/toast' },
+          { text: 'Axios', link: '/components/axios' },
         ]
       },
     ],

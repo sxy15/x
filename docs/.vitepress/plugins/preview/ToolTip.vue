@@ -10,16 +10,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps } from 'vue'
-import {
-  offset,
-  flip,
-  shift,
-  computePosition,
-  Placement,
-  ReferenceElement,
-  FloatingElement,
-} from '@floating-ui/vue';
+import { ref } from 'vue'
+import { offset, flip, shift, computePosition, Placement, ReferenceElement, FloatingElement } from '@floating-ui/vue'
 
 const props = defineProps<{ placement: Placement; content: string }>()
 const reference = ref<ReferenceElement>()
